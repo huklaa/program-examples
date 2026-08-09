@@ -1,6 +1,9 @@
 use anchor_lang::prelude::*;
 use anchor_lang::system_program::{create_account, CreateAccount};
 
+// NOTE: This teaching example focuses on PDA signing and intentionally omits caller
+// authorization. Production programs should add appropriate access control before
+// reusing this rent-vault pattern.
 #[derive(Accounts)]
 pub struct CreateNewAccount<'info> {
     #[account(mut)]

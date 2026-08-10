@@ -3,6 +3,9 @@ use anchor_lang::system_program::{create_account, CreateAccount};
 
 #[derive(Accounts)]
 pub struct CreateNewAccount<'info> {
+    // NOTE: This example intentionally does not restrict who may call it. In a
+    // production rent vault, add an authority check or bind the vault to a
+    // specific funder/caller before allowing it to pay for new accounts.
     #[account(mut)]
     new_account: Signer<'info>,
 

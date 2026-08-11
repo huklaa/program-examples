@@ -6,6 +6,10 @@ pub struct CreateNewAccount<'info> {
     #[account(mut)]
     new_account: Signer<'info>,
 
+    // This example intentionally keeps the rent vault permissionless so it can
+    // focus on PDA signing. Production code should add authorization (for
+    // example, bind the vault to an authority or funder and validate that
+    // authority) before allowing lamports to be spent from a shared vault.
     #[account(
         mut,
         seeds = [

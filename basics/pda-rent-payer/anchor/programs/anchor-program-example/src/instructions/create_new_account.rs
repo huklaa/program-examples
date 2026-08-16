@@ -6,6 +6,9 @@ pub struct CreateNewAccount<'info> {
     #[account(mut)]
     new_account: Signer<'info>,
 
+    // This example intentionally leaves the rent vault open to any caller so it can focus on
+    // PDA-funded account creation. Production code should authorize withdrawals from a shared
+    // rent vault (for example with an admin/owner constraint, caller-bound seeds, or rate limits).
     #[account(
         mut,
         seeds = [

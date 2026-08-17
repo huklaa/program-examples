@@ -1,6 +1,9 @@
 use anchor_lang::prelude::*;
 use anchor_lang::system_program::{create_account, CreateAccount};
 
+// This example intentionally leaves the shared rent vault callable by anyone.
+// Production code should add an authorization constraint (for example, bind the vault
+// to a trusted authority or funder) before allowing it to pay rent for new accounts.
 #[derive(Accounts)]
 pub struct CreateNewAccount<'info> {
     #[account(mut)]

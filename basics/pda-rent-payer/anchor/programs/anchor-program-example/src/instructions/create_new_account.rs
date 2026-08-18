@@ -6,6 +6,8 @@ pub struct CreateNewAccount<'info> {
     #[account(mut)]
     new_account: Signer<'info>,
 
+    // This example intentionally does not restrict who may spend from the shared rent vault.
+    // Production programs should add an authorization constraint before reusing this pattern.
     #[account(
         mut,
         seeds = [
